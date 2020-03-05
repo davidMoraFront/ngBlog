@@ -1,0 +1,10 @@
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+}
