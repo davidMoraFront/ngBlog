@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ngblog-1564a": {
+      "hosting": {
+        "ngBlog": [
+          "ngblog-1564a"
+        ]
+      }
+    }
+  }
+}
