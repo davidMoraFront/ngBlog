@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { PostService } from "../../posts/post.service";
+import { Observable } from "rxjs";
+import { PostI } from "src/app/shared/models/post.interface";
 
 @Component({
   selector: "app-home",
@@ -38,7 +41,12 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  constructor() {}
+  public posts$: Observable<PostI[]>;
 
-  ngOnInit() {}
+  constructor(private postSvc: PostService) {}
+
+  ngOnInit() {
+    // this.postSvc.getAllPosts().subscribe(res => console.log("POSTS", res));
+    this.posts$ = this.postSvc.getAllPosts();
+  }
 }

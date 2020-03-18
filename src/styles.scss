@@ -1,4 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.mat-chip {
+  &.mat-standard-chip {
+    min-height: 1rem;
+    padding: 0.7rem;
+
+    &.sport {
+      background-color: blue;
+    }
+
+    &.life {
+      background-color: green;
+    }
+
+    &.style {
+      background-color: red;
+    }
+  }
+}
