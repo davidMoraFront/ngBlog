@@ -6,3 +6,18 @@ table {
   font-size: 14px;
   width: 100%;
 }
+
+.container-btn-new {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    margin: 1rem;
+    background: #451e89;
+    color: #ffffff;
+
+    mat-icon {
+      margin-right: 5px;
+    }
+  }
+}
