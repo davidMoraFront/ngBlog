@@ -19,6 +19,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from "src/environments/environment";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ContainerAppComponent } from "./components/pages/container-app/container-app.component";
+import { ModalComponent } from "./shared/components/modal/modal.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ContainerAppComponent } from "./components/pages/container-app/containe
     NewPostComponent,
     PostComponent,
     ToolbarComponent,
-    ContainerAppComponent
+    ContainerAppComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { ContainerAppComponent } from "./components/pages/container-app/containe
     ReactiveFormsModule,
     MaterialModule
   ],
+  entryComponents: [ModalComponent],
   providers: [
     { provide: StorageBucket, useValue: "gs://ngblog-1564a.appspot.com" }
   ],

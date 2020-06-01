@@ -4,13 +4,9 @@ import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { PostService } from "src/app/components/posts/post.service";
 import { PostI } from "../../models/post.interface";
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+import Swal from "sweetalert2";
+import { MatDialog } from "@angular/material/dialog";
+import { ModalComponent } from "../modal/modal.component";
 
 @Component({
   selector: "app-table",
@@ -23,7 +19,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private postSvc: PostService) {}
+  constructor(private postSvc: PostService, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.postSvc
@@ -46,10 +42,41 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   onDeletePost(post: PostI) {
-    console.log("Delete", post);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "dd3333"
+    }).then(result => {
+      if (result.value) {
+        this.postSvc
+          .deletePostById(post)
+          .then(() => {
+            Swal.fire("Deleted!", "Your post has been deleted", "success");
+          })
+          .catch(error => {
+            Swal.fire(
+              "Error!",
+              "There was an error deleting this post",
+              "error"
+            );
+          });
+      }
+    });
   }
 
   onNewPost() {
-    console.log("New Post");
+    this.openDialog();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result ${result}`);
+    });
   }
 }
