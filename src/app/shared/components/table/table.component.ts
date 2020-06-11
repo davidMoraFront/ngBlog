@@ -75,8 +75,5 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result ${result}`);
-    });
   }
 }

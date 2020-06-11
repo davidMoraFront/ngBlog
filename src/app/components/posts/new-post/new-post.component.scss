@@ -1,0 +1,36 @@
+.new-post-container {
+  form {
+    display: flex;
+    flex-direction: column;
+
+    .container-input-file {
+      width: 100%;
+      border: 1px solid #cccccc;
+      display: inline-block;
+      margin: 1rem 0 2rem 0;
+
+      label {
+        display: block;
+        padding: 6px;
+        cursor: pointer;
+      }
+    }
+
+    input {
+      width: 100%;
+
+      &[type="file"] {
+        display: none;
+      }
+
+      &[type="submit"] {
+        background: #4e0561;
+        color: #ffffff;
+
+        &:hover {
+          background: #3c034b;
+        }
+      }
+    }
+  }
+}
