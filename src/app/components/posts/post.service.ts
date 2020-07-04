@@ -44,6 +44,14 @@ export class PostService {
     return this.postsColletion.doc(post.id).delete();
   }
 
+  public editPostById(post: PostI, newImage?: FileI) {
+    if (newImage) {
+      this.uploadImage(post, newImage);
+    } else {
+      return this.postsColletion.doc(post.id).update(post);
+    }
+  }
+
   public updatePostById(post: PostI) {
     return this.postsColletion.doc(post.id).update(post);
   }
@@ -61,7 +69,11 @@ export class PostService {
       tagsPost: post.tagsPost
     };
 
-    this.postsColletion.add(postObj);
+    if (post.id) {
+      return this.postsColletion.doc(post.id).update(postObj);
+    } else {
+      return this.postsColletion.add(postObj);
+    }
   }
 
   private uploadImage(post: PostI, image: FileI) {

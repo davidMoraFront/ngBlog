@@ -22,7 +22,6 @@ export class NewPostComponent implements OnInit {
   ngOnInit() {}
 
   addNewPost(data: PostI) {
-    console.log("Data", data);
     this.postSvc.preAddAndUpdatePost(data, this.image);
   }
 
