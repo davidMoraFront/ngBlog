@@ -1,0 +1,76 @@
+:host {
+  mat-card {
+    display: flex;
+    flex-direction: column;
+
+    mat-card-header {
+      justify-content: center;
+
+      .label {
+        display: inline-block;
+        vertical-align: top;
+        overflow: hidden;
+        position: relative;
+        margin: 20px;
+        text-align: center;
+        border-radius: 50%;
+
+        p {
+          position: absolute;
+          width: 100%;
+          background: rgba(123, 31, 162, 0.7);
+          color: #ffffff;
+          text-transform: uppercase;
+          //transition: all 0.15s ease;
+        }
+
+        img {
+          display: block;
+          width: 150px;
+          height: 150px;
+          //border-radius: 50%;
+          border: 2px solid #ffffff;
+          margin: 0;
+          &:hover {
+            border: 2px solid rgba(123, 31, 162, 0.7);
+            cursor: pointer;
+          }
+        }
+      }
+
+      .bottom {
+        p {
+          bottom: -50%;
+        }
+        &:hover p {
+          bottom: 0%;
+        }
+      }
+
+      img {
+        border-radius: 50%;
+        width: 150px;
+      }
+    }
+
+    mat-card-content,
+    mat-card-actions {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      margin: 0 auto;
+    }
+
+    mat-card-actions {
+      margin-top: 3rem;
+
+      input[type="submit"] {
+        background-color: #7b1fa2;
+        color: #ffffff;
+        cursor: pointer;
+        padding: 0.4rem;
+        border: 0;
+      }
+    }
+  }
+}
