@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { PostComponent } from "./components/posts/post/post.component";
 import { ContainerAppComponent } from "./components/pages/container-app/container-app.component";
+import { DetailsPostComponent } from "./components/posts/details-post/details-post.component";
 
 const routes: Routes = [
   {
@@ -11,37 +11,39 @@ const routes: Routes = [
       {
         path: "home",
         loadChildren: () =>
-          import("./components/pages/home/home.module").then(m => m.HomeModule)
+          import("./components/pages/home/home.module").then(
+            (m) => m.HomeModule
+          ),
       },
-      { path: "post/:id", component: PostComponent },
+      { path: "post/:id", component: DetailsPostComponent },
       {
         path: "about",
         loadChildren: () =>
           import("./components/pages/about/about.module").then(
-            m => m.AboutModule
-          )
+            (m) => m.AboutModule
+          ),
       },
       {
         path: "",
         redirectTo: "home",
-        pathMatch: "full"
-      }
-    ]
+        pathMatch: "full",
+      },
+    ],
   },
   {
     path: "login",
     loadChildren: () =>
-      import("./components/auth/login/login.module").then(m => m.LoginModule)
+      import("./components/auth/login/login.module").then((m) => m.LoginModule),
   },
   {
     path: "admin",
     loadChildren: () =>
-      import("./components/admin/admin.module").then(m => m.AdminModule)
-  }
+      import("./components/admin/admin.module").then((m) => m.AdminModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

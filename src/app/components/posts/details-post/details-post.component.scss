@@ -1,0 +1,32 @@
+:host {
+  .mat-card {
+    background: #ffffff;
+    color: #000000;
+    width: 80%;
+    margin: 1% auto;
+    padding: 2%;
+    text-align: center;
+
+    .mat-card-title {
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .mat-card-content {
+      width: 80%;
+      text-align: center;
+      margin: 0 auto;
+
+      p.content {
+        text-align: initial;
+      }
+    }
+
+    img {
+      width: 80%;
+      border-radius: 6px;
+      margin-top: 0;
+    }
+  }
+}
